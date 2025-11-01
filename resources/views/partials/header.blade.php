@@ -18,12 +18,14 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link cart-icon" href="#" id="cartBtn">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </a>
-                </li>
+             {{-- THIS IS THE NEW CODE --}}
+<li class="nav-item">
+    {{-- We changed href to the new route and REMOVED id="cartBtn" --}}
+    <a class="nav-link cart-icon {{ request()->routeIs('cart') ? 'active' : '' }}" href="{{ route('cart') }}">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </a>
+</li>
             </ul>
         </div>
     </div>

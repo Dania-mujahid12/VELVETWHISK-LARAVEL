@@ -6,6 +6,12 @@ use App\Http\Controllers\PageController;
 
 // Home Page
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/product.html', [PageController::class, 'product'])->name('product');
+Route::get('/contact.html', [PageController::class, 'contact'])->name('contact');
+
+Route::get('/cart', [PageController::class, 'cart'])->name('cart');
+
+Route::get('/checkout.html', [PageController::class, 'checkout'])->name('checkout');
 
 
 Route::get('/index.html', [PageController::class, 'home']);

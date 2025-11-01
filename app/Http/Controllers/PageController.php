@@ -35,4 +35,9 @@ class PageController extends Controller
     {
         return view('pages.checkout');
     }
+    // Returns the new full-page cart
+    public function cart()
+    {
+        return view('pages.cart');
+    }
 }

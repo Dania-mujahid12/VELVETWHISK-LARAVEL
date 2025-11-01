@@ -49,4 +49,45 @@
         </button>
     </div>
 </section>
+<section class="py-5" style="background-color: var(--light);">
+    <div class="container">
+        
+        <div class="section-title">
+            <h2>Our Cakes</h2>
+        </div>
+
+        <ul class="nav nav-pills justify-content-center mb-5 cake-filter-nav" id="cake-filters">
+            <li class="nav-item">
+                <button class="nav-link cake-filter-btn active" data-category="all">All</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link cake-filter-btn" data-category="birthday">Birthday</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link cake-filter-btn" data-category="wedding">Wedding</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link cake-filter-btn" data-category="bridal shower">Bridal Shower</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link cake-filter-btn" data-category="party">Party</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link cake-filter-btn" data-category="graduation">Graduation</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link cake-filter-btn" data-category="gender reveal">Gender Reveal</button>
+            </li>
+        </ul>
+
+        <div id="cakesContainer" class="row gy-4">
+            </div>
+
+    </div>
+</section>
+
+
 @endsection
+
+
+
