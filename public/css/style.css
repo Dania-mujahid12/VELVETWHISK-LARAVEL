@@ -882,3 +882,11 @@ footer {
     }
 
 }
+/* Fix visibility of the "Must Purchase" message */
+#review-permission-msg p {
+    color: #d5d5d5 !important; /* Light grey/white text */
+    font-weight: 500;
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.8;
+}

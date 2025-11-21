@@ -79,11 +79,34 @@
                 <button class="nav-link cake-filter-btn" data-category="gender reveal">Gender Reveal</button>
             </li>
         </ul>
+<div id="cakesContainer" class="row gy-4">
+    @foreach($cakes as $cake)
+    <div class="col-lg-4 col-md-6">
+        <div class="cake-card">
+            <a href="{{ route('product', ['id' => $cake->id]) }}">
+                <img src="{{ $cake->image }}" class="cake-img" alt="{{ $cake->name }}">
+            </a>
+            <div class="cake-body">
+                <h3 class="cake-title">
+                    <a href="{{ route('product', ['id' => $cake->id]) }}" class="text-decoration-none" style="color: var(--dark);">
+                        {{ $cake->name }}
+                    </a>
+                </h3>
+                <p class="cake-desc">{{ $cake->description }}</p>
+                <p class="cake-price">{{ number_format($cake->price, 0) }}</p>
 
-        <div id="cakesContainer" class="row gy-4">
+                <button class="btn btn-add-cart" 
+                    data-id="{{ $cake->id }}"
+                    data-name="{{ $cake->name }}"
+                    data-price="{{ $cake->price }}"
+                    data-image="{{ $cake->image }}">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
             </div>
-
+        </div>
     </div>
+    @endforeach
+</div>
 </section>
 
 

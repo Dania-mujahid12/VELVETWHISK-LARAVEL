@@ -2,7 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AdminCakeController;
 
+
+// === ADMIN ROUTES ===
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('cakes', AdminCakeController::class);
+});
 
 // Home Page
 Route::get('/', [PageController::class, 'home'])->name('home');

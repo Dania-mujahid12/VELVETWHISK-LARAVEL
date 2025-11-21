@@ -3,39 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cake;
 
 class PageController extends Controller
 {
-    // Returns the home page view
     public function home()
     {
-        return view('pages.home');
+    
+        $cakes = Cake::inRandomOrder()->limit(6)->get();
+        return view('pages.home', compact('cakes'));
     }
 
-    // Returns the variety page view
-    public function variety()
+    public function variety(Request $request)
     {
-        return view('pages.variety');
+        $category = $request->query('category');
+        
+        if ($category && $category !== 'all') {
+            $cakes = Cake::where('category', $category)->get();
+        } else {
+            $cakes = Cake::all();
+        }
+        
+        return view('pages.variety', compact('cakes'));
     }
 
-    // Returns the product page view
-    public function product()
+    public function product(Request $request)
     {
-        return view('pages.product');
+        $id = $request->query('id');
+        
+        $cake = Cake::findOrFail($id);
+
+        $relatedCakes = Cake::where('category', $cake->category)
+                            ->where('id', '!=', $id)
+                            ->take(3)
+                            ->get();
+
+        return view('pages.product', compact('cake', 'relatedCakes'));
     }
 
-    // Returns the contact page view
     public function contact()
     {
         return view('pages.contact');
     }
 
-    // Returns the checkout page view
     public function checkout()
     {
         return view('pages.checkout');
     }
-    // Returns the new full-page cart
+
     public function cart()
     {
         return view('pages.cart');
