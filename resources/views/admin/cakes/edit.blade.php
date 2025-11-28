@@ -12,17 +12,16 @@
             <label>Name:</label>
             <input type="text" name="name" value="{{ $cake->name }}" class="form-control" required>
         </div>
-        <div class="mb-3">
-            <label>Category:</label>
-            <select name="category" class="form-control">
-                <option value="birthday" {{ $cake->category == 'birthday' ? 'selected' : '' }}>Birthday</option>
-                <option value="wedding" {{ $cake->category == 'wedding' ? 'selected' : '' }}>Wedding</option>
-                <option value="bridal shower" {{ $cake->category == 'bridal shower' ? 'selected' : '' }}>Bridal Shower</option>
-                <option value="party" {{ $cake->category == 'party' ? 'selected' : '' }}>Party</option>
-                <option value="graduation" {{ $cake->category == 'graduation' ? 'selected' : '' }}>Graduation</option>
-                <option value="gender reveal" {{ $cake->category == 'gender reveal' ? 'selected' : '' }}>Gender Reveal</option>
-            </select>
-        </div>
+       <div class="mb-3">
+    <label>Category:</label>
+    <select name="category" class="form-control">
+        @foreach($categories as $category)
+            <option value="{{ $category->name }}" {{ $cake->category == $category->name ? 'selected' : '' }}>
+                {{ ucfirst($category->name) }}
+            </option>
+        @endforeach
+    </select>
+</div>>
         <div class="mb-3">
             <label>Price:</label>
             <input type="number" name="price" value="{{ $cake->price }}" class="form-control" required>

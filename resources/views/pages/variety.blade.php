@@ -10,41 +10,20 @@
         <h2>Our Cake Collection</h2>
     </div>
 
-    <nav class="cake-filter-nav d-flex justify-content-center flex-wrap mb-5">
+  <nav class="cake-filter-nav d-flex justify-content-center flex-wrap mb-5">
+        
         <a href="{{ route('variety', ['category' => 'all']) }}" 
            class="nav-link cake-filter-btn {{ request('category') == 'all' || !request('category') ? 'active' : '' }}">
            All
         </a>
-        
-        <a href="{{ route('variety', ['category' => 'birthday']) }}" 
-           class="nav-link cake-filter-btn {{ request('category') == 'birthday' ? 'active' : '' }}">
-           Birthday
-        </a>
 
-        <a href="{{ route('variety', ['category' => 'wedding']) }}" 
-           class="nav-link cake-filter-btn {{ request('category') == 'wedding' ? 'active' : '' }}">
-           Wedding
-        </a>
+        @foreach($categories as $category)
+            <a href="{{ route('variety', ['category' => $category->name]) }}" 
+               class="nav-link cake-filter-btn {{ request('category') == $category->name ? 'active' : '' }}">
+               {{ ucfirst($category->name) }}
+            </a>
+        @endforeach
 
-        <a href="{{ route('variety', ['category' => 'party']) }}" 
-           class="nav-link cake-filter-btn {{ request('category') == 'party' ? 'active' : '' }}">
-           Party
-        </a>
-
-        <a href="{{ route('variety', ['category' => 'bridal shower']) }}" 
-           class="nav-link cake-filter-btn {{ request('category') == 'bridal shower' ? 'active' : '' }}">
-           Bridal Shower
-        </a>
-
-        <a href="{{ route('variety', ['category' => 'graduation']) }}" 
-           class="nav-link cake-filter-btn {{ request('category') == 'graduation' ? 'active' : '' }}">
-           Graduation
-        </a>
-
-        <a href="{{ route('variety', ['category' => 'gender reveal']) }}" 
-           class="nav-link cake-filter-btn {{ request('category') == 'gender reveal' ? 'active' : '' }}">
-           Gender Reveal
-        </a>
     </nav>
 
     <div class="row gy-4">

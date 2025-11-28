@@ -890,3 +890,35 @@ footer {
     font-style: italic;
     opacity: 0.8;
 }
+/* =================================
+   ADMIN FORM INPUT FIXES
+   ================================= */
+
+/* Make typed text WHITE */
+.form-control {
+    color: #ffffff !important;
+    background-color: #2d2420; /* Dark background to match theme */
+    border: 1px solid #4a373f;
+}
+
+/* Make placeholder text Light Grey */
+.form-control::placeholder {
+    color: #bbbbbb !important;
+    opacity: 1;
+}
+
+/* Keep text white when you click inside (Focus) */
+.form-control:focus {
+    color: #ffffff !important;
+    background-color: #3b2e2a; /* Slightly lighter dark for focus */
+    border-color: #c75b77;
+    box-shadow: 0 0 0 0.25rem rgba(199, 91, 119, 0.25);
+}
+
+/* Fix for Select Dropdowns */
+.form-select {
+    color: #ffffff !important;
+    background-color: #2d2420;
+    border: 1px solid #4a373f;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); /* White arrow */
+}

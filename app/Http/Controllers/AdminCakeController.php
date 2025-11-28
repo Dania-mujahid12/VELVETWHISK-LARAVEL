@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cake;
+use App\Models\Category; 
 use Illuminate\Support\Facades\Storage;
 
 class AdminCakeController extends Controller
 {
-  
     public function index()
     {
         $cakes = Cake::all();
@@ -17,7 +17,8 @@ class AdminCakeController extends Controller
 
     public function create()
     {
-        return view('admin.cakes.create');
+        $categories = Category::all();
+        return view('admin.cakes.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -33,7 +34,6 @@ class AdminCakeController extends Controller
         $input = $request->all();
 
         if ($request->hasFile('image')) {
-         
             $imagePath = $request->file('image')->store('cakes', 'public');
             $input['image'] = '/storage/' . $imagePath;
         }
@@ -43,13 +43,12 @@ class AdminCakeController extends Controller
         return redirect()->route('admin.cakes.index')->with('success', 'Cake created successfully.');
     }
 
-    // Show form to edit cake
     public function edit(Cake $cake)
     {
-        return view('admin.cakes.edit', compact('cake'));
+        $categories = Category::all();
+        return view('admin.cakes.edit', compact('cake', 'categories'));
     }
 
-    // 3. UPDATE: Update cake in DB
     public function update(Request $request, Cake $cake)
     {
         $request->validate([

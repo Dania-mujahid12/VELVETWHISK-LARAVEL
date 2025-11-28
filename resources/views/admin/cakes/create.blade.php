@@ -11,17 +11,15 @@
             <label>Name:</label>
             <input type="text" name="name" class="form-control" required>
         </div>
-        <div class="mb-3">
-            <label>Category:</label>
-            <select name="category" class="form-control">
-                <option value="birthday">Birthday</option>
-                <option value="wedding">Wedding</option>
-                <option value="bridal shower">Bridal Shower</option>
-                <option value="party">Party</option>
-                <option value="graduation">Graduation</option>
-                <option value="gender reveal">Gender Reveal</option>
-            </select>
-        </div>
+       <div class="mb-3">
+    <label>Category:</label>
+    <select name="category" class="form-control">
+        <option value="">Select a Category</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->name }}">{{ ucfirst($category->name) }}</option>
+        @endforeach
+    </select>
+</div>
         <div class="mb-3">
             <label>Price:</label>
             <input type="number" name="price" class="form-control" required>
