@@ -14,6 +14,22 @@ class PageController extends Controller
         return view('pages.home', compact('cakes'));
     }
 
+public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    if (!$query) {
+        return response()->json([]);
+    }
+
+    $cakes = Cake::where('name', 'LIKE', "%{$query}%")
+                 ->orWhere('category', 'LIKE', "%{$query}%")
+                 ->limit(5) 
+                 ->get(['id', 'name', 'image', 'category', 'price']);
+
+    return response()->json($cakes);
+}
+
     public function variety(Request $request)
     {
         $categories = Category::all(); 
