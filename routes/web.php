@@ -30,4 +30,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('cakes', AdminCakeController::class);
     Route::resource('categories', AdminCategoryController::class);
-});
+}
+);
+
+// Route::prefix('admin')->name('admin.')->group(function () {
+//     Route::resource('cakes', AdminCakeController::class);
+//     Route::resource('categories', App\Http\Controllers\AdminCategoryController::class);
+// });
+    //for doing update and delete from postman 

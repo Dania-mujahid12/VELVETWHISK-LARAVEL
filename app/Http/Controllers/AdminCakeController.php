@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Storage;
 class AdminCakeController extends Controller
 {
     public function index()
-    {
-        $cakes = Cake::all();
-        return view('admin.cakes.index', compact('cakes'));
+{
+    $cakes = Cake::all();
+     return view('admin.cakes.index', compact('cakes'));
     }
 
     public function create()
