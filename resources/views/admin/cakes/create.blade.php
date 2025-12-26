@@ -46,7 +46,7 @@
         const preview = document.getElementById('image-preview');
         const errorMsg = document.getElementById('image-error');
         const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
-        const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+        const maxSize = 2 * 1024 * 1024;
 
         // Reset
         preview.style.display = 'none';
